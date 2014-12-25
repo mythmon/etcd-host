@@ -1,7 +1,8 @@
 Creates an entry in etcd at `/hosts/$hostname`.
 
-This is designed to be combined with
-[nss\_etcd](https://github.com/tingar/libnss_etcd).
+This is designed to be combined with [nss\_etcd][].
+
+[nss\_etcd]: https://github.com/tingar/libnss_etcd
 
 Usage
 =====
@@ -37,3 +38,14 @@ WantedBy=tincd@%i.service
 This pairs `etcd-host@` to `tincd@`. Enable both with `systemctl enable
 etcd-host@dev tincd@dev`. `etcd-host@dev` will start automaticalled when
 ever `tincd@dev` starts.
+
+Configuration
+=============
+
+As well as the command line arguments detailed above, etcd-host will also read
+from the environment variable `ETCDCTL_PEERS` to get a list of peers. When
+using this, the recommend format is
+`http://10.0.0.1:4001,http://10.0.0.2:4001,http://10.0.0.3:4001`, for
+compatibility with [`etcdctl`][etcdctl].
+
+[etcdctl]: https://github.com/coreos/etcd/tree/master/etcdctl
