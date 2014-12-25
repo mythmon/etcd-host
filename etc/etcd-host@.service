@@ -1,0 +1,8 @@
+[Unit]
+Description=Keep up to date a etcd /host/ entry.
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/etcd-host -i %i
+Restart=always
+RestartSec=10
