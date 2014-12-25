@@ -1,5 +1,8 @@
 Creates an entry in etcd at /hosts/$hostname.
 
+This is designed to be combined with
+[nss\_etcd](https://github.com/tingar/libnss_etcd).
+
 Usage
 =====
 
