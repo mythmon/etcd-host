@@ -51,7 +51,7 @@ function getKey() {
 function etcdCb(res) {
   if (res && res.errors) {
     res.errors.forEach(function(e) {
-      console.error(e.httperror);
+      console.error('HTTP Error:', e.httperror || e.httpbody || e);
     });
     console.error('Could not set value in etcd.');
     process.exit(2);
